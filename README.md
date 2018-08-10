@@ -29,7 +29,8 @@ $ curl -d '{"email" : "email@example.com","password" : "Pass123","role" : "ROLE_
 
 ```
 Tokens have 1 hour expiration
-$ curl -H 'content-type: application/json' -v -X  GET http://127.0.0.1:8000/user/email@example.com/Pass123
+$ curl -d '{"email" : "email@example.com","password" : "Pass123"}' -H 'content-type: application/json' -v -X  POST http://127.0.0.1:8000/user/token/
+
 ```
 
 ## Create League

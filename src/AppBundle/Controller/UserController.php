@@ -62,7 +62,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/{email}/{password}", name="token_authentication", methods={"GET"})
+     * @Route("/user/token/", name="token_authentication", methods={"POST"})
      *
      * @param Request $request
      * @param UserPasswordEncoder $encoder
@@ -71,8 +71,10 @@ class UserController extends Controller
      */
     public function getTokenAction(Request $request, UserPasswordEncoder $encoder)
     {
-        $email = $request->get("email");
-        $password = $request->get("password");
+        $content = json_decode($request->getContent(), true);
+
+        $email = $content['email'];
+        $password = $content['password'];
 
         /** @var User $user */
         $user = $this->service->get($email);
