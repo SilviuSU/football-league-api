@@ -1,5 +1,7 @@
 # Football League Rest Api
 
+Symfony api example application that can create a football league,  add teams to the league, etc ...
+
 ## Install with Composer
 make install
 
